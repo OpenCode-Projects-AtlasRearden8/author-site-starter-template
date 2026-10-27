@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbf7ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#231f19" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Get an email when Dylan Asdale publishes a new book, chapter, or free guide. Plain-English AI education, no spam.">
+  <title>Newsletter — Dylan Asdale</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%239a3b1e'/%3E%3Cpath%20d='M14%2046%2032%2012l18%2034'%20fill='none'%20stroke='%23fff8f0'%20stroke-width='6'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3Cpath%20d='M22%2046h20'%20stroke='%23fff8f0'%20stroke-width='6'%20stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+
+  <header class="site-head">
+    <div class="wrap wrap--wide">
+      <p class="site-name"><a href="../">Dylan Asdale</a></p>
+      <!-- EDIT: subfolder page, so nav links start with ../ -->
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../">Home</a></li>
+          <li><a href="../books/">Books</a></li>
+          <li><a href="./" aria-current="page">Newsletter</a></li>
+          <li><a href="../about/">About</a></li>
+          <li><a href="../contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap wrap--wide">
+
+    <section>
+      <h1>Get new guides in your inbox</h1>
+      <p class="lede">
+        One short email when something new is out — a new chapter, a free template, or a
+        step-by-step guide. No spam, and one click to leave.
+      </p>
+
+      <!-- NEWSLETTER SIGNUP PLACEHOLDER
+           This is a plain HTML form (no JavaScript, by design). Point its action
+           attribute at your email provider's subscribe endpoint — any service that
+           accepts a standard POST works, e.g. Buttondown, ConvertKit/Kit,
+           Mailchimp, Formspree, or a self-hosted listmonk. Until you replace it,
+           the action below is a placeholder and the form will not deliver mail.
+           Wire it up before you announce this page. -->
+      <form class="form" action="https://example.com/signup" method="post">
+        <div class="field">
+          <label for="nl-name">Name <span class="optional">(optional)</span></label>
+          <input id="nl-name" name="name" type="text" autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="nl-email">Email</label>
+          <input id="nl-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <button class="btn btn--strong" type="submit">Sign me up</button>
+        <p class="fine">
+          You can unsubscribe at any time with the link in every email.
+          Your address is never shared or sold, and the signup form stores nothing on this site.
+        </p>
+      </form>
+
+      <p style="margin-top:1.5rem;">
+        Prefer plain email? <a href="mailto:hello@example.com">Say hello and ask to be added</a>.
+        <!-- EDIT: replace hello@example.com with your real address here and on the contact page. -->
+      </p>
+    </section>
+
+    <section>
+      <h2>What you are signing up for</h2>
+      <ul class="narrow">
+        <li>New book announcements (usually one or two a year).</li>
+        <li>Free chapters, checklists, and template updates.</li>
+        <li>Occasional plain-English explainers of things in the news about AI.</li>
+      </ul>
+      <p class="callout narrow">
+        That is it — a few emails a year. This site sets no cookies and runs no JavaScript,
+        so the newsletter is the only way anything gets sent to you.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap wrap--wide">
+      <!-- EDIT: replace the right side of this line with your own name or company. -->
+      <span>© 2026 Asdale Dynamics, LLC · published by Dylan Asdale</span>
+      <span><a href="https://github.com/dylanasdale">GitHub</a></span>
+    </div>
+  </footer>
+</body>
+</html>

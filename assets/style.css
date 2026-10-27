@@ -1,0 +1,329 @@
+/*
+  author-site-starter-template — one shared stylesheet, no build step.
+  MIT License, Copyright (c) 2026 Asdale Dynamics, LLC.
+
+  DESIGN KNOBS (the ones you are most likely to want):
+  * Overall text size: the font-size line in :root below (large-print friendly
+    by default). 112.5% = ~18px body text. Try 125% or 150% for big-print.
+  * Colors: the CSS variables in :root, duplicated for dark mode just beneath.
+  Everything else changes at your own risk, but it is all plain CSS.
+*/
+
+/* --------------------------------------------------------------- tokens -- */
+
+:root {
+  font-size: 112.5%; /* Small knob, big effect: 112.5% ~ 18px. 125% or 150% for large print. */
+
+  --paper: #fbf7ef;      /* warm cream background */
+  --surface: #ffffff;    /* cards, inputs, panels */
+  --ink: #2b2620;        /* soft, printerly near-black text */
+  --muted: #6b6156;      /* secondary text */
+  --accent: #9a3b1e;     /* terracotta: links, emphasis, primary buttons */
+  --accent-ink: #fff8f0; /* text on top of --accent */
+  --line: #e6ddcc;       /* hairline borders */
+  --tag: #f3ead9;        /* badges, chips, soft fills */
+
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(43, 38, 32, 0.08), 0 8px 24px rgba(43, 38, 32, 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #231f19;
+    --surface: #2c2822;
+    --ink: #f0e9dc;
+    --muted: #b7ac9a;
+    --accent: #ec9368;
+    --accent-ink: #2b2620;
+    --line: #454034;
+    --tag: #37322a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* ---------------------------------------------------------------- reset -- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+}
+
+img, video { max-width: 100%; height: auto; }
+
+button, input, select, textarea { font: inherit; }
+
+/* ------------------------------------------------------------------ type -- */
+
+h1, h2, h3, h4 { line-height: 1.25; letter-spacing: -0.01em; margin: 0 0 0.65em; }
+
+h1 { font-size: clamp(1.8rem, 1.4rem + 2vw, 2.5rem); }
+h2 { font-size: 1.45rem; margin-top: 1.6em; }
+h3 { font-size: 1.15rem; margin-top: 1.4em; }
+
+a { color: var(--accent); text-decoration-thickness: from-font; text-underline-offset: 0.15em; }
+a:hover { text-decoration-thickness: 0.1em; }
+
+.wrap { max-width: 44rem; margin-inline: auto; padding-inline: 1.25rem; }
+.wrap--wide { max-width: 56rem; }
+
+.lede { font-size: 1.15rem; max-width: 40rem; }
+
+.fine { color: var(--muted); font-size: 0.85rem; }
+
+.muted { color: var(--muted); }
+
+.narrow { max-width: 44rem; }
+
+/* ------------------------------------------------------------- structure -- */
+
+.skip {
+  position: absolute;
+  inset-inline-start: 1rem;
+  top: -3.5rem;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.55rem 1rem;
+  border-radius: 0 0 8px 8px;
+  z-index: 10;
+  text-decoration: none;
+}
+
+.skip:focus { top: 0; }
+
+.site-head {
+  border-bottom: 1px solid var(--line);
+  padding-block: 0.9rem;
+}
+
+.site-head .wrap--wide {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+}
+
+.site-name { margin: 0; font-weight: 800; font-size: 1.2rem; }
+.site-name a { color: var(--ink); text-decoration: none; }
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a { color: var(--ink); text-decoration: none; }
+.site-nav a:hover { color: var(--accent); text-decoration: underline; }
+.site-nav a[aria-current="page"] { color: var(--accent); font-weight: 700; }
+
+main { padding-block: 2.25rem 3rem; }
+
+main section + section { margin-top: 2.5rem; }
+
+.site-foot {
+  border-top: 1px solid var(--line);
+  margin-top: 2rem;
+  padding-block: 1.5rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.site-foot a { color: inherit; }
+
+.site-foot .wrap--wide {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+}
+
+/* -------------------------------------------------------------- buttons -- */
+
+.btn {
+  display: inline-block;
+  padding: 0.5em 1.15em;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn:hover { border-color: var(--muted); }
+
+.btn--strong {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.btn--strong:hover { filter: brightness(1.06); }
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+
+/* ----------------------------------------------------------------- cards -- */
+
+.book-grid, .points-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(16.5rem, 1fr));
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.card h2, .card h3 { margin: 0; font-size: 1.22rem; }
+
+.badge {
+  align-self: flex-start;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: var(--tag);
+  padding: 0.28em 0.75em;
+  border-radius: 999px;
+  margin: 0;
+}
+
+.badge--soon { background: transparent; border: 1.5px dashed var(--line); }
+
+.buy { flex-wrap: wrap; gap: 0.6rem; margin: 0.5rem 0 0; margin-top: auto; padding: 0; }
+.buy .btn { font-size: 0.9rem; }
+
+.slot-card {
+  border: 1.5px dashed var(--line);
+  box-shadow: none;
+  background: transparent;
+  color: var(--muted);
+}
+
+.slot-card h2, .slot-card h3 { color: var(--muted); }
+
+.points-grid .card { gap: 0.4rem; }
+.points-grid .card h3 { font-size: 1.05rem; margin: 0; }
+
+.feature {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+
+.feature h2 { margin-top: 0; }
+
+/* --------------------------------------------------------------- extras -- */
+
+.callout {
+  border-inline-start: 4px solid var(--accent);
+  background: var(--tag);
+  padding: 0.9rem 1.1rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.portrait {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  background: var(--tag);
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--muted);
+  flex: none;
+}
+
+.about-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.standalone-link { font-size: 1.15rem; font-weight: 600; }
+
+/* ----------------------------------------------------------------- form -- */
+
+.form {
+  display: grid;
+  gap: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  max-width: 34rem;
+}
+
+.form label { font-weight: 600; }
+
+.form .optional { font-weight: 400; color: var(--muted); }
+
+.form input {
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.55em 0.7em;
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.form button {
+  justify-self: start;
+  border: none;
+  cursor: pointer;
+  padding: 0.55em 1.3em;
+}
+
+/* --------------------------------------------------------- a11y + misc -- */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+/* ---------------------------------------------------------------- print -- */
+
+@media print {
+  :root { font-size: 11pt; }
+  body { background: #fff; color: #000; }
+  .site-nav, .skip, .hero-actions, .buy { display: none; }
+  .card, .feature, .form { box-shadow: none; border-color: #bbb; break-inside: avoid; }
+  a { color: #000; }
+}

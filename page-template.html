@@ -1,0 +1,98 @@
+<!doctype html>
+<!--
+  PAGE TEMPLATE — buildless editing (there is no build system, this HTML is the site)
+
+  HOW TO USE:
+  1. Copy this file. Rename the copy to your page's name.
+     - Simple page:         my-new-page.html          (reachable at /my-new-page.html)
+     - Clean URL (nicer):   my-new-page/index.html    (reachable at /my-new-page/)
+  2. If the new page lives in THIS folder, links work exactly as written.
+     If it lives in a subfolder (my-new-page/index.html), change links like this:
+       - "assets/style.css"  becomes  "../assets/style.css"
+       - "books/"            becomes  "../books/"
+       - href="./"           becomes  href="../"
+  3. Search the file for "EDIT:" and fill every slot. That is the whole system.
+
+  RULES THAT KEEP IT PASSING CHECKS:
+  * Keep all internal links RELATIVE (never start with "/"). Relative links work
+    on both username.github.io and username.github.io/repo/ project sites.
+  * Keep exactly one <h1> per page and an id="main" on the <main> tag.
+  * Every <img> needs alt text. Run: python3 scripts/check_links.py
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbf7ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#231f19" media="(prefers-color-scheme: dark)">
+  <!-- EDIT: description shown in search results, one clear sentence about this page. -->
+  <meta name="description" content="Edit this sentence: a one-line description of this page.">
+  <!-- EDIT: page title, format "Page name — Site name". Shows in browser tabs and search. -->
+  <title>New page — edit me</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%239a3b1e'/%3E%3Cpath%20d='M14%2046%2032%2012l18%2034'%20fill='none'%20stroke='%23fff8f0'%20stroke-width='6'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3Cpath%20d='M22%2046h20'%20stroke='%23fff8f0'%20stroke-width='6'%20stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+
+  <header class="site-head">
+    <div class="wrap wrap--wide">
+      <!-- EDIT: your site name. -->
+      <p class="site-name"><a href="./">Dylan Asdale</a></p>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <!-- EDIT: copied pages keep this nav; no aria-current here since this is a
+               generic page. On your own pages, move aria-current="page" to the nav
+               entry that matches the page you are viewing (see other pages). -->
+          <li><a href="./">Home</a></li>
+          <li><a href="books/">Books</a></li>
+          <li><a href="newsletter/">Newsletter</a></li>
+          <li><a href="about/">About</a></li>
+          <li><a href="contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap wrap--wide">
+
+    <section class="narrow">
+      <!-- EDIT: change ALL of the text below. One h1 per page, then h2 sections. -->
+      <h1>New page title</h1>
+      <p class="lede">
+        A short, warm opening paragraph that tells a first-time visitor what this page is
+        about and why it will help them.
+      </p>
+
+      <h2>A section heading</h2>
+      <p>
+        Regular paragraphs go here. <strong>Bold</strong>, <em>italics</em>, and
+        <a href="index.html">links</a> all work. Bulleted lists look like the ones on the
+        About page. That is genuinely all the markup you need for a good page.
+      </p>
+
+      <h2>Another section</h2>
+      <p>
+        Long paragraphs measure to about 60-70 characters per line on this template,
+        which is why reading stays easy. Nothing here needs to be rebuilt, converted,
+        or compiled: save the file, done.
+      </p>
+
+      <!-- EDIT: images, if you add them, always need alt text:
+           <img src="screenshot.png" alt="WHAT THE IMAGE ACTUALLY SHOWS">
+           Put the image file next to this page (or in assets/), then run
+           python3 scripts/check_links.py to confirm the path is right. -->
+    </section>
+
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap wrap--wide">
+      <!-- EDIT: replace the right side of this line with your own name or company. -->
+      <span>© 2026 Asdale Dynamics, LLC · published by Dylan Asdale</span>
+      <span><a href="https://github.com/dylanasdale">GitHub</a></span>
+    </div>
+  </footer>
+</body>
+</html>
